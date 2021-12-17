@@ -1,0 +1,34 @@
+{
+  "name": "fennek",
+  "displayName": "fennek",
+  "description": "The official Plugin for the Fennek CMS Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.63.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "fennek",
+        "aliases": [
+          "Fennek",
+          "fennek"
+        ],
+        "extensions": [
+          ".fe"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "fennek",
+        "scopeName": "source.fe",
+        "path": "./syntaxes/fennek.tmLanguage.json"
+      }
+    ]
+  }
+}

@@ -1,0 +1,300 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Fennek",
+  "scopeName": "source.fe",
+  "patterns": [
+    {
+      "include": "#double_comment"
+    },
+    {
+      "include": "#global_symbol"
+    },
+    {
+      "include": "#block_definition"
+    }
+  ],
+  "repository": {
+    "block_definition": {
+      "begin": "^\\s*(component|page|store|site)\\s+([A-Za-z][\\w]*)\\s*({)",
+      "name": "source.fennek.embedded.source",
+      "beginCaptures": {
+        "1": {
+          "name": "storage.type.model.fennek"
+        },
+        "2": {
+          "name": "entity.name.type.model.fennek"
+        },
+        "3": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#double_comment"
+        },
+        {
+          "include": "#assignment"
+        }
+      ],
+      "end": "\\s*\\}",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      }
+    },
+    "assignment": {
+      "patterns": [
+        {
+          "begin": "^\\s*(\\w+?)(\\??)\\s*(=)\\s*",
+          "beginCaptures": {
+            "1": {
+              "name": "variable.other.assignment.fennek"
+            },
+            "2": {
+              "name": "keyword.operator.optional_type.fennek"
+            },
+            "3": {
+              "name": "keyword.operator.terraform"
+            }
+          },
+          "patterns": [
+            {
+              "include": "#symbol"
+            },
+            {
+              "include": "#double_comment_inline"
+            }
+          ],
+          "end": ";"
+        }
+      ]
+    },
+    "global_symbol": {
+      "name": "source.fennek.attribute.with_arguments",
+      "begin": "(@@[\\w]+)(\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.attribute.fennek"
+        },
+        "2": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#named_argument"
+        }
+      ],
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      }
+    },
+    "symbol": {
+      "name": "source.fennek.attribute.with_arguments",
+      "begin": "(@[\\w]+)(\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.attribute.fennek"
+        },
+        "2": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#named_argument"
+        }
+      ],
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      }
+    },
+    "attribute_with_arguments": {
+      "name": "source.fennek.attribute.with_arguments",
+      "begin": "(@@?[\\w]+)(\\()",
+      "beginCaptures": {
+        "1": {
+          "name": "entity.name.function.attribute.fennek"
+        },
+        "2": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#named_argument"
+        }
+      ],
+      "end": "\\)",
+      "endCaptures": {
+        "0": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      }
+    },
+    "array": {
+      "name": "source.fennek.array",
+      "begin": "\\[",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#value"
+        },
+        {
+          "include": "#symbol"
+        },
+        {
+          "include": "#double_comment_inline"
+        }
+      ],
+      "end": "\\]",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.fennek"
+        }
+      }
+    },
+    "value": {
+      "name": "source.fennek.value",
+      "patterns": [
+        {
+          "include": "#array"
+        },
+        {
+          "include": "#functional"
+        },
+        {
+          "include": "#literal"
+        }
+      ]
+    },
+    "literal": {
+      "name": "source.fennek.literal",
+      "patterns": [
+        {
+          "include": "#boolean"
+        },
+        {
+          "include": "#number"
+        },
+        {
+          "include": "#double_quoted_string"
+        },
+        {
+          "include": "#identifier"
+        }
+      ]
+    },
+    "identifier": {
+      "patterns": [
+        {
+          "match": "\\b(\\w)+\\b",
+          "name": "support.constant.constant.fennek"
+        }
+      ]
+    },
+    "map_key": {
+      "name": "source.fennek.key",
+      "patterns": [
+        {
+          "match": "(\\w+)\\s*(:)\\s*",
+          "captures": {
+            "1": {
+              "name": "variable.parameter.key.fennek"
+            },
+            "2": {
+              "name": "punctuation.definition.separator.key-value.fennek"
+            }
+          }
+        }
+      ]
+    },
+    "named_argument": {
+      "name": "source.fennek.named_argument",
+      "patterns": [
+        {
+          "include": "#map_key"
+        },
+        {
+          "include": "#value"
+        }
+      ]
+    },
+    "double_comment": {
+      "begin": "//",
+      "end": "$\\n?",
+      "name": "comment.fennek"
+    },
+    "double_comment_inline": {
+      "match": "//[^\\n]*",
+      "name": "comment.fennek"
+    },
+    "boolean": {
+      "match": "\\b(true|false)\\b",
+      "name": "constant.language.boolean.fennek"
+    },
+    "number": {
+      "match": "((0(x|X)[0-9a-fA-F]*)|(\\+|-)?\\b(([0-9]+\\.?[0-9]*)|(\\.[0-9]+))((e|E)(\\+|-)?[0-9]+)?)([LlFfUuDdg]|UL|ul)?\\b",
+      "name": "constant.numeric.fennek"
+    },
+    "double_quoted_string": {
+      "begin": "\"",
+      "beginCaptures": {
+        "0": {
+          "name": "string.quoted.double.start.fennek"
+        }
+      },
+      "end": "\"",
+      "endCaptures": {
+        "0": {
+          "name": "string.quoted.double.end.fennek"
+        }
+      },
+      "patterns": [
+        {
+          "include": "#string_interpolation"
+        },
+        {
+          "match": "([\\w\\-\\/\\._\\\\%@:\\?=]+)",
+          "name": "string.quoted.double.fennek"
+        }
+      ],
+      "name": "unnamed"
+    },
+    "string_interpolation": {
+      "patterns": [
+        {
+          "begin": "\\$\\{",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.control.interpolation.start.fennek"
+            }
+          },
+          "end": "\\s*\\}",
+          "endCaptures": {
+            "0": {
+              "name": "keyword.control.interpolation.end.fennek"
+            }
+          },
+          "name": "source.tag.embedded.source.fennek",
+          "patterns": [
+            {
+              "include": "#value"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
