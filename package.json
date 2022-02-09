@@ -1,7 +1,7 @@
 {
-  "name": "fennek",
-  "displayName": "fennek",
-  "description": "The official Plugin for the Fennek CMS Language",
+  "name": "pinc",
+  "displayName": "pinc",
+  "description": "The official Plugin for the PiNC CMS Language",
   "version": "0.0.1",
   "engines": {
     "vscode": "^1.63.0"
@@ -12,22 +12,23 @@
   "contributes": {
     "languages": [
       {
-        "id": "fennek",
+        "id": "pinc",
         "aliases": [
-          "Fennek",
-          "fennek"
+          "PINC",
+          "PiNC",
+          "pinc"
         ],
         "extensions": [
-          ".fe"
+          ".pi"
         ],
         "configuration": "./language-configuration.json"
       }
     ],
     "grammars": [
       {
-        "language": "fennek",
-        "scopeName": "source.fe",
-        "path": "./syntaxes/fennek.tmLanguage.json"
+        "language": "pinc",
+        "scopeName": "source.pi",
+        "path": "./syntaxes/pinc.tmLanguage.json"
       }
     ]
   }

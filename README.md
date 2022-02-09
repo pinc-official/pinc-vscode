@@ -1,5 +1,5 @@
-# fennek
+# pinc
 
 ## Features
 
-- Syntax Highlighting of the Fennek CMS Language
+- Syntax Highlighting of the PiNC CMS Language

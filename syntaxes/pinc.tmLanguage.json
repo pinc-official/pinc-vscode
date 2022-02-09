@@ -1,0 +1,233 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "PiNC",
+  "scopeName": "source.pi",
+  "patterns": [
+    {
+      "include": "#double_comment"
+    },
+    {
+      "include": "#operator"
+    },
+    {
+      "include": "#punctuations"
+    },
+    {
+      "include": "#tag"
+    },
+    {
+      "include": "#jsx"
+    },
+    {
+      "include": "#string"
+    },
+    {
+      "include": "#array"
+    },
+    {
+      "include": "#keyword"
+    },
+    {
+      "include": "#number"
+    },
+    {
+      "include": "#assignment"
+    }
+  ],
+  "repository": {
+    "keyword": {
+      "patterns": [
+        {
+          "name": "storage.type",
+          "match": "\\b(component|page|store|site)\\b"
+        },
+        {
+          "name": "keyword.control",
+          "match": "\\b(else|for|reverse|break|continue|if|in|let)\\b"
+        },
+        {
+          "name": "constant.language",
+          "match": "\\b(false|true)\\b"
+        }
+      ]
+    },
+    "number": {
+      "patterns": [
+        {
+          "match": "\\b(0[xX][a-fA-F0-9_]+[Lln]?|0[oO][0-7_]+[Lln]?|0[bB][01_]+[Lln]?|[0-9][0-9_]*([Lln]|(\\.[0-9_]+)?([eE][-+]?[0-9_]+)?)?)\\b",
+          "name": "constant.numeric"
+        }
+      ]
+    },
+    "operator": {
+      "patterns": [
+        {
+          "match": "(->)|(\\|\\|)|(&&)|(\\+\\+)|(\\*\\*)|(\\+)|(-)|(\\*)|(/)|(\\.\\.\\.)|(\\.\\.)|(===)|(==)|(!)|(<=)|((\\s+)>(\\s+))|((\\s+)<(\\s+))|(>=)|(::)",
+          "name": "keyword.operator keyword"
+        }
+      ]
+    },
+    "assignment": {
+      "patterns": [
+        {
+          "match": "=",
+          "name": "keyword.operator.assignment"
+        }
+      ]
+    },
+    "punctuations": {
+      "patterns": [
+        {
+          "match": ";",
+          "name": "punctuation.terminator"
+        },
+        {
+          "match": "\\.",
+          "name": "punctuation.accessor"
+        },
+        {
+          "match": "\\,",
+          "name": "punctuation.separator"
+        },
+        {
+          "match": "\\?|:",
+          "name": "punctuation.separator"
+        },
+        {
+          "match": "\\{",
+          "name": "punctuation.section.braces.begin"
+        },
+        {
+          "match": "\\}",
+          "name": "punctuation.section.braces.end"
+        },
+        {
+          "match": "\\(",
+          "name": "punctuation.section.parens.begin"
+        },
+        {
+          "match": "\\)",
+          "name": "punctuation.section.parens.end"
+        }
+      ]
+    },
+    "string": {
+      "patterns": [
+        {
+          "name": "string.quoted.double",
+          "begin": "\"",
+          "end": "\"",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.begin"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.end"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape",
+              "match": "\\\\."
+            },
+            {
+              "name": "meta.template.expression",
+              "begin": "\\$\\{",
+              "beginCaptures": {
+                "0": {
+                  "name": "punctuation.section.interpolation.begin"
+                }
+              },
+              "end": "\\}",
+              "endCaptures": {
+                "0": {
+                  "name": "punctuation.section.interpolation.end"
+                }
+              },
+              "patterns": [
+                {
+                  "match": "[a-z_][0-9a-zA-Z_]*"
+                },
+                {
+                  "include": "#operator"
+                },
+                {
+                  "include": "#punctuations"
+                },
+                {
+                  "include": "#string"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "array": {
+      "patterns": [
+        {
+          "match": "\\[",
+          "name": "punctuation.section.brackets.begin"
+        },
+        {
+          "match": "\\]",
+          "name": "punctuation.section.brackets.end"
+        }
+      ]
+    },
+    "jsx": {
+      "patterns": [
+        {
+          "match": "/>"
+        },
+        {
+          "match": "</([A-Z_][0-9a-zA-Z_]*)",
+          "captures": {
+            "1": {
+              "name": "entity.name.namespace"
+            }
+          }
+        },
+        {
+          "match": "<([A-Z_][0-9a-zA-Z_]*)",
+          "captures": {
+            "1": {
+              "name": "entity.name.namespace"
+            }
+          }
+        },
+        {
+          "match": "<(a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|main|map|mark|menu|menuitem|meta|meter|nav|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|small|source|span|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var|video|wbr|circle|clipPath|defs|ellipse|g|line|linearGradient|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|svg|text|tspan)(>|\\s+)",
+          "captures": {
+            "1": {
+              "name": "entity.name.tag"
+            }
+          }
+        },
+        {
+          "match": "</(a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|main|map|mark|menu|menuitem|meta|meter|nav|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|small|source|span|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var|video|wbr|circle|clipPath|defs|ellipse|g|line|linearGradient|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|svg|text|tspan)>",
+          "captures": {
+            "1": {
+              "name": "entity.name.tag"
+            }
+          }
+        }
+      ]
+    },
+    "tag": {
+      "patterns": [
+        {
+          "match": "(#(String|Int|Float|Boolean|Array|Record|Template))",
+          "name": "support.function"
+        }
+      ]
+    },
+    "double_comment": {
+      "begin": "//",
+      "end": "$\\n?",
+      "name": "comment.pinc"
+    }
+  }
+}
