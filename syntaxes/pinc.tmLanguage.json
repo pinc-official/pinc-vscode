@@ -39,11 +39,15 @@
       "patterns": [
         {
           "name": "storage.type",
-          "match": "\\b(component|page|store|site)\\b"
+          "match": "\\b(component|page|store|site|let)\\b"
+        },
+        {
+          "name": "keyword.operator",
+          "match": "\\b(reverse)\\b"
         },
         {
           "name": "keyword.control",
-          "match": "\\b(else|for|reverse|break|continue|if|in|let)\\b"
+          "match": "\\b(else|for|break|continue|if|in)\\b"
         },
         {
           "name": "constant.language",
@@ -62,7 +66,7 @@
     "operator": {
       "patterns": [
         {
-          "match": "(->)|(\\|\\|)|(&&)|(\\+\\+)|(\\*\\*)|(\\+)|(-)|(\\*)|(/)|(\\.\\.\\.)|(\\.\\.)|(===)|(==)|(!)|(<=)|((\\s+)>(\\s+))|((\\s+)<(\\s+))|(>=)|(::)",
+          "match": "(@@)|(<-)|(->)|(\\|\\|)|(&&)|(\\+\\+)|(\\*\\*)|(\\+)|(-)|(\\*)|(/)|(\\.\\.\\.)|(\\.\\.)|(===)|(==)|(!)|(<=)|((\\s+)>(\\s+))|((\\s+)<(\\s+))|(>=)|(::)",
           "name": "keyword.operator keyword"
         }
       ]
@@ -180,37 +184,88 @@
     "jsx": {
       "patterns": [
         {
-          "match": "/>"
-        },
-        {
-          "match": "</([A-Z_][0-9a-zA-Z_]*)",
+          "match": "\\s*(/>)",
           "captures": {
-            "1": {
-              "name": "entity.name.namespace"
+            "0": {
+              "name": "punctuation.definition.tag"
             }
           }
         },
         {
-          "match": "<([A-Z_][0-9a-zA-Z_]*)",
+          "match": "(<)([A-Z][0-9a-zA-Z_]*)(>|\\s+)",
           "captures": {
             "1": {
-              "name": "entity.name.namespace"
+              "name": "punctuation.definition.tag"
+            },
+            "2": {
+              "name": "entity.name.tag entity.name.namespace"
+            },
+            "3": {
+              "name": "punctuation.definition.tag"
             }
           }
         },
         {
-          "match": "<(a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|main|map|mark|menu|menuitem|meta|meter|nav|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|small|source|span|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var|video|wbr|circle|clipPath|defs|ellipse|g|line|linearGradient|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|svg|text|tspan)(>|\\s+)",
+          "match": "(<)([a-z][0-9a-zA-Z_-]*)(>|\\s+)",
           "captures": {
             "1": {
+              "name": "punctuation.definition.tag"
+            },
+            "2": {
+              "name": "entity.name.tag"
+            },
+            "3": {
+              "name": "punctuation.definition.tag"
+            }
+          }
+        },
+        {
+          "match": "(<)([A-Z][0-9a-zA-Z_]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.tag"
+            },
+            "2": {
+              "name": "entity.name.tag entity.name.namespace"
+            }
+          }
+        },
+        {
+          "match": "(<)([a-z][0-9a-zA-Z_-]*)\\s*",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.tag"
+            },
+            "2": {
               "name": "entity.name.tag"
             }
           }
         },
         {
-          "match": "</(a|abbr|address|area|article|aside|audio|b|base|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|fieldset|figcaption|figure|footer|form|h1|h2|h3|h4|h5|h6|head|header|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|main|map|mark|menu|menuitem|meta|meter|nav|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rp|rt|ruby|s|samp|script|section|select|small|source|span|strong|style|sub|summary|sup|table|tbody|td|textarea|tfoot|th|thead|time|title|tr|track|u|ul|var|video|wbr|circle|clipPath|defs|ellipse|g|line|linearGradient|mask|path|pattern|polygon|polyline|radialGradient|rect|stop|svg|text|tspan)>",
+          "match": "(</)([A-Z][0-9a-zA-Z_]*)\\s*(>)",
           "captures": {
             "1": {
+              "name": "punctuation.definition.tag"
+            },
+            "2": {
+              "name": "entity.name.tag entity.name.namespace"
+            },
+            "3": {
+              "name": "punctuation.definition.tag"
+            }
+          }
+        },
+        {
+          "match": "(</)([a-z][0-9a-zA-Z_-]*)\\s*(>)",
+          "captures": {
+            "1": {
+              "name": "punctuation.definition.tag"
+            },
+            "2": {
               "name": "entity.name.tag"
+            },
+            "3": {
+              "name": "punctuation.definition.tag"
             }
           }
         }
@@ -227,7 +282,7 @@
     "double_comment": {
       "begin": "//",
       "end": "$\\n?",
-      "name": "comment.pinc"
+      "name": "comment.line.double-slash"
     }
   }
 }
