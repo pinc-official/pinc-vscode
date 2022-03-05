@@ -314,7 +314,7 @@
     "tag": {
       "patterns": [
         {
-          "match": "(#(String|Int|Float|Boolean|Array|Record|Template))",
+          "match": "(#(String|Int|Float|Boolean|Array|Record|Slot))",
           "name": "support.function"
         }
       ]
