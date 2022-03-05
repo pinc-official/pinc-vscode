@@ -208,6 +208,22 @@
     "jsx": {
       "patterns": [
         {
+          "match": "\\s*(<>)",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.tag"
+            }
+          }
+        },
+        {
+          "match": "\\s*(</>)",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.tag"
+            }
+          }
+        },
+        {
           "match": "\\s*(/>)",
           "captures": {
             "0": {
