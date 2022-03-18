@@ -42,7 +42,7 @@
       "patterns": [
         {
           "name": "storage.type",
-          "match": "\\b(component|page|store|site|let|fn)\\b"
+          "match": "\\b(component|page|store|site|let|mutable|fn)\\b"
         },
         {
           "name": "keyword.operator",
@@ -81,7 +81,7 @@
     "operator": {
       "patterns": [
         {
-          "match": "(@@)|(<-)|(->)|(\\|\\|)|(&&)|(\\+\\+)|(\\*\\*)|(\\+)|(-)|(\\*)|(/)|(\\.\\.\\.)|(\\.\\.)|(===)|(==)|(!)|(<=)|((\\s+)>(\\s+))|((\\s+)<(\\s+))|(>=)|(::)",
+          "match": "(\\|>)|(@@)|(<-)|(->)|(\\|\\|)|(&&)|(\\+\\+)|(\\*\\*)|(\\+)|(-)|(\\*)|(/)|(\\.\\.\\.)|(\\.\\.)|(===)|(==)|(!)|(<=)|((\\s+)>(\\s+))|((\\s+)<(\\s+))|(>=)|(::)",
           "name": "keyword.operator keyword"
         }
       ]
@@ -89,7 +89,7 @@
     "assignment": {
       "patterns": [
         {
-          "match": "=",
+          "match": "(=)|(:=)",
           "name": "keyword.operator.assignment"
         }
       ]
