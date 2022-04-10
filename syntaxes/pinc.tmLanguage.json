@@ -42,7 +42,7 @@
       "patterns": [
         {
           "name": "storage.type",
-          "match": "\\b(component|page|store|site|let|mutable|fn)\\b"
+          "match": "\\b(component|page|store|site|library|let|mutable|fn)\\b"
         },
         {
           "name": "keyword.operator",
