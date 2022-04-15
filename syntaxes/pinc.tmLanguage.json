@@ -314,7 +314,7 @@
     "tag": {
       "patterns": [
         {
-          "match": "(#(String|Int|Float|Boolean|Array|Record|Slot))",
+          "match": "(#([A-Z][0-9a-zA-Z_]*))",
           "name": "support.function"
         }
       ]
