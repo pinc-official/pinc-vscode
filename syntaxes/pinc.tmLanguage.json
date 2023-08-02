@@ -4,6 +4,9 @@
   "scopeName": "source.pi",
   "patterns": [
     {
+      "include": "#block_comment"
+    },
+    {
       "include": "#double_comment"
     },
     {
@@ -323,6 +326,17 @@
       "begin": "//",
       "end": "$\\n?",
       "name": "comment.line.double-slash"
+    },
+    "block_comment": {
+      "comment": "Block comment",
+      "name": "comment.block.cxm",
+      "begin": "/\\*",
+      "end": "\\*/",
+      "patterns": [
+        {
+          "include": "#block_comment"
+        }
+      ]
     }
   }
 }
