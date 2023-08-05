@@ -25,6 +25,9 @@
       "include": "#string"
     },
     {
+      "include": "#char"
+    },
+    {
       "include": "#array"
     },
     {
@@ -179,6 +182,9 @@
                   "include": "#string"
                 },
                 {
+                  "include": "#char"
+                },
+                {
                   "include": "#array"
                 },
                 {
@@ -191,6 +197,43 @@
                   "include": "#variables"
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    "char": {
+      "patterns": [
+        {
+          "name": "string.quoted.single",
+          "begin": "'",
+          "end": "'",
+          "beginCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.begin"
+            }
+          },
+          "endCaptures": {
+            "1": {
+              "name": "punctuation.definition.string.end"
+            }
+          },
+          "patterns": [
+            {
+              "name": "constant.character.escape",
+              "match": "\\\\x\\h\\h"
+            },
+            {
+              "name": "constant.character.escape",
+              "match": "\\\\o\\d\\d\\d"
+            },
+            {
+              "name": "constant.character.escape",
+              "match": "\\\\\\d\\d\\d"
+            },
+            {
+              "name": "constant.character.escape",
+              "match": "\\\\."
             }
           ]
         }
