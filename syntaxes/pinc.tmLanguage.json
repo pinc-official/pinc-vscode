@@ -159,13 +159,13 @@
             },
             {
               "name": "meta.template.expression",
-              "begin": "\\{\\|",
+              "begin": "\\$\\(",
               "beginCaptures": {
                 "0": {
                   "name": "punctuation.section.interpolation.begin"
                 }
               },
-              "end": "\\|\\}",
+              "end": "\\)",
               "endCaptures": {
                 "0": {
                   "name": "punctuation.section.interpolation.end"
