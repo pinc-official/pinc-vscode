@@ -1,14 +1,20 @@
 {
-  "name": "pinc",
-  "displayName": "pinc",
-  "description": "The official Plugin for the PiNC CMS Language",
+  "name": "pinc-lang",
+  "displayName": "pinc-lang",
+  "description": "The official Plugin for the PiNC Language",
   "version": "0.0.1",
+  "publisher": "pinc",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pinc-lang/pinc-vscode.git"
+  },
   "engines": {
     "vscode": "^1.63.0"
   },
   "categories": [
     "Programming Languages"
   ],
+  "preview": true,
   "contributes": {
     "languages": [
       {
@@ -31,5 +37,13 @@
         "path": "./syntaxes/pinc.tmLanguage.json"
       }
     ]
+  },
+  "scripts": {
+    "publish": "vsce publish",
+    "publish:prerelease": "vsce publish --pre-release",
+    "package": "vsce package"
+  },
+  "devDependencies": {
+    "@vscode/vsce": "^2.22.0"
   }
 }
