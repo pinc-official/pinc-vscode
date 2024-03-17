@@ -12,7 +12,8 @@
     "vscode": "^1.63.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
   ],
   "preview": true,
   "contributes": {
@@ -35,6 +36,16 @@
         "language": "pinc",
         "scopeName": "source.pi",
         "path": "./syntaxes/pinc.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "pinc",
+        "path": "./snippets/main.json"
+      },
+      {
+        "language": "pinc",
+        "path": "./snippets/control-flow.json"
       }
     ]
   },

@@ -1,0 +1,49 @@
+{
+  "Component": {
+    "scope": "pinc",
+    "prefix": ["component"],
+    "body": [
+      "component ${1:NewComponent}${2:(${3:label: \"${4:New Component}\"})} {",
+      "\t${5:use Base;\n}",
+      "\t$0",
+      "}"
+    ]
+  },
+  "Page": {
+    "scope": "pinc",
+    "prefix": ["page"],
+    "body": [
+      "page ${1:NewPage}${2:(${3:label: \"${4:New Page}\"})} {",
+      "\t${5:use Base;\n}",
+      "\t<>",
+      "\t\t<!DOCTYPE html>",
+      "\t\t<html lang=\"${6:en}\">",
+      "\t\t\t${7:<head>\n\t\t\t\t<meta charset=\"UTF-8\" />\n\t\t\t\t<meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n\t\t\t\t<title>$8</title>\n\t\t\t</head>}",
+      "\t\t\t<body>",
+      "\t\t\t\t$0",
+      "\t\t\t</body>",
+      "\t\t</html>",
+      "\t</>",
+      "}"
+    ]
+  },
+  "Store": {
+    "scope": "pinc",
+    "prefix": ["store"],
+    "body": [
+      "store ${1:NewStore}(single: ${2|false,true|}) {",
+      "\t$0",
+      "}"
+    ]
+  },
+  "Library": {
+    "scope": "pinc",
+    "prefix": ["library"],
+    "body": [
+      "library ${1:NewLibrary} {",
+      "\t${2:use ${3:SubLibrary} = ${4:MyLibrary__Sub}; // Re-Export ${4:MyLibrary__Sub} as ${1:NewLibrary}.${3:SubLibrary}\n}",
+      "\t$0",
+      "}"
+    ]
+  }
+}
