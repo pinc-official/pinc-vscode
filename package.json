@@ -46,6 +46,10 @@
       {
         "language": "pinc",
         "path": "./snippets/control-flow.json"
+      },
+      {
+        "language": "pinc",
+        "path": "./snippets/tags.json"
       }
     ]
   },

@@ -1,0 +1,93 @@
+{
+  "string": {
+    "scope": "pinc",
+    "prefix": ["#String"],
+    "body": [
+      "#String(${1:key: \"${2:some-key}\"})"
+    ]
+  },
+  "int": {
+    "scope": "pinc",
+    "prefix": ["#Int"],
+    "body": [
+      "#Int(${1:key: \"${2:some-key}\"})"
+    ]
+  },
+  "float": {
+    "scope": "pinc",
+    "prefix": ["#Float"],
+    "body": [
+      "#Float(${1:key: \"${2:some-key}\"})"
+    ]
+  },
+  "boolean": {
+    "scope": "pinc",
+    "prefix": ["#Boolean"],
+    "body": [
+      "#Boolean(${1:key: \"${2:some-key}\"})"
+    ]
+  },
+  "array": {
+    "scope": "pinc",
+    "prefix": ["#Array"],
+    "body": [
+      "#Array(${1:key: \"${2:some-key}\", }of: $0)"
+    ]
+  },
+  "record": {
+    "scope": "pinc",
+    "prefix": ["#Record"],
+    "body": [
+      "#Record(${1:key: \"${2:some-key}\", }of: {",
+      "\t${3:key}: $0,",
+      "})"
+    ]
+  },
+  "slot": {
+    "scope": "pinc",
+    "prefix": ["#Slot"],
+    "body": [
+      "#Slot(",
+      "\t${1:key: \"${2:default}\",}",
+      "\t${3:min: ${4:1},}",
+      "\t${5:max: ${6:1},}",
+      "\t${7:constraints: ${8:[${9:!}${10:SomeComponent}${11:, ${9:!}${12:OtherComponent}}]},}",
+      ")"
+    ]
+  },
+  "store": {
+    "scope": "pinc",
+    "prefix": ["#Store"],
+    "body": [
+      "#Store(id: ${1:StoreDefinition})"
+    ]
+  },
+  "set context": {
+    "scope": "pinc",
+    "prefix": ["#SetContext"],
+    "body": [
+      "#SetContext(key: \"${1:context-name}\", value: $0);"
+    ]
+  },
+  "get context": {
+    "scope": "pinc",
+    "prefix": ["#GetContext"],
+    "body": [
+      "#GetContext(key: \"${1:context-name}\")"
+    ]
+  },
+  "create portal": {
+    "scope": "pinc",
+    "prefix": ["#CreatePortal"],
+    "body": [
+      "#CreatePortal(key: \"${1:portal-name}\")${2: :: Base.Array.unique}"
+    ]
+  },
+	"portal": {
+    "scope": "pinc",
+    "prefix": ["#Portal"],
+    "body": [
+      "#Portal(key: \"${1:portal-name}\", push: $0);"
+    ]
+  }
+}
