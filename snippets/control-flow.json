@@ -1,5 +1,5 @@
 {
-  "For Loop": {
+  "for loop": {
     "scope": "pinc",
     "prefix": ["for"],
     "body": [
@@ -8,13 +8,52 @@
       "}"
     ]
   },
-  "If Condition": {
+  "if condition": {
     "scope": "pinc",
     "prefix": ["if"],
     "body": [
       "if (${1:condition}) {",
       "\t$0",
       "}"
+    ]
+  },
+  "let binding": {
+    "scope": "pinc",
+    "prefix": ["let"],
+    "body": [
+      "let ${1:binding}${2:?} = $0;\n"
+    ]
+  },
+  "mutable let binding": {
+    "scope": "pinc",
+    "prefix": ["letm", "let-mutable"],
+    "body": [
+      "let mutable ${1:binding}${2:?} = $0;\n"
+    ]
+  },
+  "use statement": {
+    "scope": "pinc",
+    "prefix": ["use"],
+    "body": [
+      "use ${1:${2:NameInScope} = }${3:LibraryToImport};"
+    ]
+  },
+  "function definition": {
+    "scope": "pinc",
+    "prefix": ["fn"],
+    "body": [
+      "let ${1:function_name} = fn (${2:parameter}${3:, ${4:parameter2}}) -> {",
+      "\t$0",
+      "};"
+    ]
+  },
+  "anonymous function definition": {
+    "scope": "pinc",
+    "prefix": ["fna", "fn-anonymous"],
+    "body": [
+      "fn (${1:parameter}${2:, ${3:parameter2}}) -> {",
+      "\t$0",
+      "};"
     ]
   }
 }
