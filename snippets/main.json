@@ -1,5 +1,5 @@
 {
-  "Component": {
+  "component": {
     "scope": "pinc",
     "prefix": ["component"],
     "body": [
@@ -9,7 +9,7 @@
       "}"
     ]
   },
-  "Page": {
+  "page": {
     "scope": "pinc",
     "prefix": ["page"],
     "body": [
@@ -27,7 +27,7 @@
       "}"
     ]
   },
-  "Store": {
+  "store": {
     "scope": "pinc",
     "prefix": ["store"],
     "body": [
@@ -36,7 +36,7 @@
       "}"
     ]
   },
-  "Library": {
+  "library": {
     "scope": "pinc",
     "prefix": ["library"],
     "body": [
