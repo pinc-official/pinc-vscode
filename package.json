@@ -6,7 +6,7 @@
   "publisher": "pinc",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pinc-lang/pinc-vscode.git"
+    "url": "https://github.com/pinc-official/pinc-vscode.git"
   },
   "engines": {
     "vscode": "^1.63.0"
