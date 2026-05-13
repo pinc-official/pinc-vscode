@@ -9,8 +9,12 @@
     "url": "https://github.com/pinc-official/pinc-vscode.git"
   },
   "engines": {
-    "vscode": "^1.63.0"
+    "vscode": "^1.118.0"
   },
+  "main": "./out/extension.js",
+  "activationEvents": [
+    "onLanguage:pinc"
+  ],
   "categories": [
     "Programming Languages",
     "Snippets"
@@ -54,11 +58,21 @@
     ]
   },
   "scripts": {
+    "compile": "tsc -p ./",
     "publish": "vsce publish",
     "publish:prerelease": "vsce publish --pre-release",
-    "package": "vsce package"
+    "package": "vsce package",
+    "watch": "tsc -watch -p ./"
+  },
+  "dependencies": {
+    "vscode-languageclient": "9.0.1",
+    "vscode-languageserver": "9.0.1",
+    "vscode-languageserver-textdocument": "1.0.12"
   },
   "devDependencies": {
-    "@vscode/vsce": "^2.22.0"
+    "@types/node": "25.6.0",
+    "@types/vscode": "1.118.0",
+    "@vscode/vsce": "3.9.1",
+    "typescript": "6.0.3"
   }
 }
