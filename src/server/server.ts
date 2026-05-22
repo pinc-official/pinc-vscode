@@ -9,7 +9,7 @@ import {
 } from 'vscode-languageserver/node';
 
 import { TextDocument } from 'vscode-languageserver-textdocument';
-import { pinc_format } from './pincfmt.bc';
+import { pinc_format } from '@pinc-official/pincfmt';
 
 const connection = createConnection(ProposedFeatures.all);
 const documents: TextDocuments<TextDocument> = new TextDocuments(TextDocument);
