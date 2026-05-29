@@ -4,7 +4,6 @@
     "prefix": ["component"],
     "body": [
       "component ${1:NewComponent}${2:(${3:label: \"${4:New Component}\"})} {",
-      "\t${5:use Base;\n}",
       "\t$0",
       "}"
     ]
@@ -14,7 +13,6 @@
     "prefix": ["page"],
     "body": [
       "page ${1:NewPage}${2:(${3:label: \"${4:New Page}\"})} {",
-      "\t${5:use Base;\n}",
       "\t<>",
       "\t\t<!DOCTYPE html>",
       "\t\t<html lang=\"${6:en}\">",
@@ -41,7 +39,6 @@
     "prefix": ["library"],
     "body": [
       "library ${1:NewLibrary} {",
-      "\t${2:use ${3:SubLibrary} = ${4:MyLibrary__Sub}; // Re-Export ${4:MyLibrary__Sub} as ${1:NewLibrary}.${3:SubLibrary}\n}",
       "\t$0",
       "}"
     ]

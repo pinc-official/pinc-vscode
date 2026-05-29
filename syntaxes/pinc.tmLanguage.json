@@ -48,7 +48,7 @@
       "patterns": [
         {
           "name": "storage.type",
-          "match": "\\b(component|page|store|site|library|let|mutable|use|fn)\\b"
+          "match": "\\b(component|page|store|site|library|let|mutable|fn)\\b"
         },
         {
           "name": "keyword.operator",

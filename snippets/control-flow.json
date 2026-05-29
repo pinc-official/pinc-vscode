@@ -31,13 +31,6 @@
       "let mutable ${1:binding}${2:?} = $0;\n"
     ]
   },
-  "use statement": {
-    "scope": "pinc",
-    "prefix": ["use"],
-    "body": [
-      "use ${1:${2:NameInScope} = }${3:LibraryToImport};"
-    ]
-  },
   "function definition": {
     "scope": "pinc",
     "prefix": ["fn"],
