@@ -2,7 +2,7 @@
   "name": "pinc-lang",
   "displayName": "pinc-lang",
   "description": "The official Plugin for the PiNC Language",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "publisher": "pinc",
   "repository": {
     "type": "git",
